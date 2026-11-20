@@ -1,0 +1,167 @@
+{
+  "tables": {
+    "events": {
+      "label": "报警事件",
+      "fields": [
+        {
+          "name": "event_id",
+          "meaning": "事件编号",
+          "type": "string",
+          "role": "identifier"
+        },
+        {
+          "name": "alarm_time",
+          "meaning": "报警时间",
+          "type": "datetime",
+          "role": "quasi"
+        },
+        {
+          "name": "event_type",
+          "meaning": "事件类型",
+          "type": "enum",
+          "role": "quasi"
+        },
+        {
+          "name": "district",
+          "meaning": "行政区",
+          "type": "enum",
+          "role": "quasi"
+        },
+        {
+          "name": "address_text",
+          "meaning": "去标识化地址",
+          "type": "string",
+          "role": "direct"
+        },
+        {
+          "name": "caller_phone",
+          "meaning": "报警电话（已脱敏）",
+          "type": "string",
+          "role": "direct"
+        },
+        {
+          "name": "priority",
+          "meaning": "优先级",
+          "type": "enum",
+          "role": "quasi"
+        }
+      ]
+    },
+    "dispatches": {
+      "label": "派遣记录",
+      "fields": [
+        {
+          "name": "dispatch_id",
+          "meaning": "派遣编号",
+          "type": "string",
+          "role": "identifier"
+        },
+        {
+          "name": "event_id",
+          "meaning": "所属事件",
+          "type": "string",
+          "role": "normal"
+        },
+        {
+          "name": "resource_id",
+          "meaning": "派遣资源",
+          "type": "string",
+          "role": "normal"
+        },
+        {
+          "name": "dispatch_time",
+          "meaning": "派遣时间",
+          "type": "datetime",
+          "role": "quasi"
+        }
+      ]
+    },
+    "resources": {
+      "label": "资源(车辆)",
+      "fields": [
+        {
+          "name": "resource_id",
+          "meaning": "资源编号",
+          "type": "string",
+          "role": "identifier"
+        },
+        {
+          "name": "resource_type",
+          "meaning": "资源类型",
+          "type": "enum",
+          "role": "quasi"
+        },
+        {
+          "name": "station",
+          "meaning": "所属站点",
+          "type": "enum",
+          "role": "quasi"
+        },
+        {
+          "name": "capability",
+          "meaning": "能力（逗号分隔）",
+          "type": "string",
+          "role": "normal"
+        }
+      ]
+    },
+    "arrivals": {
+      "label": "到场记录",
+      "fields": [
+        {
+          "name": "arrival_id",
+          "meaning": "到场编号",
+          "type": "string",
+          "role": "identifier"
+        },
+        {
+          "name": "dispatch_id",
+          "meaning": "所属派遣",
+          "type": "string",
+          "role": "normal"
+        },
+        {
+          "name": "arrive_time",
+          "meaning": "到场时间",
+          "type": "datetime",
+          "role": "quasi"
+        },
+        {
+          "name": "arrive_site",
+          "meaning": "到场位置（现场/医院）",
+          "type": "enum",
+          "role": "normal"
+        }
+      ]
+    },
+    "closures": {
+      "label": "结案记录",
+      "fields": [
+        {
+          "name": "closure_id",
+          "meaning": "结案编号",
+          "type": "string",
+          "role": "identifier"
+        },
+        {
+          "name": "event_id",
+          "meaning": "所属事件",
+          "type": "string",
+          "role": "normal"
+        },
+        {
+          "name": "close_time",
+          "meaning": "结案时间",
+          "type": "datetime",
+          "role": "quasi"
+        },
+        {
+          "name": "outcome",
+          "meaning": "结案方式",
+          "type": "enum",
+          "role": "quasi"
+        }
+      ]
+    }
+  }
+}

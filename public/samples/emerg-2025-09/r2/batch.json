@@ -1,0 +1,43 @@
+{
+  "batchId": "emerg-2025-09",
+  "revision": 2,
+  "declaredAt": "2025-10-15T14:30:00+08:00",
+  "note": "2025年9月去标识化调度数据（迟到源修订 r2）",
+  "changes": [
+    "补登 2 条迟到到场记录（A0009-1、A0067-1）",
+    "修正 3 条结案时间登记错误（事件 E0021、E0056、E0102，原值早于末次到场）",
+    "修订 1 条事件分类（E0067：其他 → 交通事故）"
+  ],
+  "files": [
+    {
+      "name": "events.csv",
+      "table": "events",
+      "sha256": "00788871944773d89ed3c1ff3b18b70ee83658afd49075a56731359b6932b7af",
+      "rows": 132
+    },
+    {
+      "name": "dispatches.csv",
+      "table": "dispatches",
+      "sha256": "b109da279ea82f31cb1775bab047d29379ecbe4e1f1a92416ebc423556224570",
+      "rows": 158
+    },
+    {
+      "name": "resources.csv",
+      "table": "resources",
+      "sha256": "42a5c5037dd14d7bf98c2e86ec124345b33d17b00272ebce0fb5d3e364178480",
+      "rows": 14
+    },
+    {
+      "name": "arrivals.csv",
+      "table": "arrivals",
+      "sha256": "ded86193e94fe8edf9cfc6fc6ea836117dcc9dc8d5c28b5620e1db0c4dc8bf0a",
+      "rows": 158
+    },
+    {
+      "name": "closures.csv",
+      "table": "closures",
+      "sha256": "e334f32ca8b5f3cb334524a468a410ecdaa6104fe130443a0fd409af0d4a7c61",
+      "rows": 132
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "batchId": "emerg-2025-09",
+  "revision": 1,
+  "declaredAt": "2025-10-08T09:00:00+08:00",
+  "note": "2025年9月去标识化调度数据（首批登记）",
+  "changes": [],
+  "files": [
+    {
+      "name": "events.csv",
+      "table": "events",
+      "sha256": "863e7aae1c805f4aadec3451ecf5c1f308cc8671340cf25beb2508f5dc01127f",
+      "rows": 132
+    },
+    {
+      "name": "dispatches.csv",
+      "table": "dispatches",
+      "sha256": "b109da279ea82f31cb1775bab047d29379ecbe4e1f1a92416ebc423556224570",
+      "rows": 158
+    },
+    {
+      "name": "resources.csv",
+      "table": "resources",
+      "sha256": "42a5c5037dd14d7bf98c2e86ec124345b33d17b00272ebce0fb5d3e364178480",
+      "rows": 14
+    },
+    {
+      "name": "arrivals.csv",
+      "table": "arrivals",
+      "sha256": "9bccd1cedfc6f42312448a339ad7b8d18ff11a604007a32445550da133d20dd3",
+      "rows": 156
+    },
+    {
+      "name": "closures.csv",
+      "table": "closures",
+      "sha256": "241de7386da3313dcd0c25a2346bda5d774b64c19a2eff1a9b2c78b05aa6abb6",
+      "rows": 132
+    }
+  ]
+}
