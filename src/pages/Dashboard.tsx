@@ -10,7 +10,8 @@ export default function Dashboard() {
     plans: await db.plans.count(),
     runs: await db.runs.count(),
     reports: await db.reports.count(),
-    manifests: await db.manifests.count()
+    manifests: await db.manifests.count(),
+    locationRuns: await db.locationRuns.count()
   }), []);
   const lastRun = useLiveQuery(async () => {
     const runs = await db.runs.orderBy('seq').reverse().toArray();
@@ -33,7 +34,8 @@ export default function Dashboard() {
           { label: '生成方案', value: counts?.plans, to: '/plans' },
           { label: '生成运行', value: counts?.runs, to: '/runs' },
           { label: '核验报告', value: counts?.reports, to: '/reports' },
-          { label: '发布清单', value: counts?.manifests, to: '/manifests' }
+          { label: '发布清单', value: counts?.manifests, to: '/manifests' },
+          { label: '替代位置训练包', value: counts?.locationRuns, to: '/locations' }
         ].map((s) => (
           <div className="card" key={s.label}>
             <div className="stat-num">{s.value ?? '…'}</div>

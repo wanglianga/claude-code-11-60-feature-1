@@ -2,10 +2,31 @@
 
 import Dexie, { type Table } from 'dexie';
 import type { BatchMeta, RuleSet, Plan, Run, Report, Manifest, TableRows } from '../domain/types';
+import type { LocationPackage, LocationResult } from '../domain/locationTypes';
 
 export interface BatchRowsRow { key: string; tables: TableRows; }
 export interface RunOutputRow { runId: string; tables: TableRows; }
 export interface KvRow { key: string; value: unknown; }
+/** 替代位置训练记录：发布包 + 内部审计结果（审计仅本机核对，导出时剥离） */
+export interface LocationRunRow {
+  id: string;
+  seq: number;
+  scenarioId: string;
+  scenarioName: string;
+  networkVersion: string;
+  strategy: string;
+  versionTag: string;
+  status: 'running' | 'done' | 'failed';
+  createdAt: string;
+  finishedAt?: string;
+  packageId?: string;
+  packageHash?: string;
+  summaryText?: string;
+  result?: LocationResult;
+  pkg?: LocationPackage;
+  error?: string;
+  versions: { network: number; stations: number; regions: number }; // 修订快照
+}
 
 export class SynthDB extends Dexie {
   batches!: Table<BatchMeta, string>;
@@ -16,6 +37,7 @@ export class SynthDB extends Dexie {
   runOutputs!: Table<RunOutputRow, string>;
   reports!: Table<Report, string>;
   manifests!: Table<Manifest, string>;
+  locationRuns!: Table<LocationRunRow, string>;
   kv!: Table<KvRow, string>;
 
   constructor() {
@@ -30,6 +52,9 @@ export class SynthDB extends Dexie {
       reports: 'id, runId',
       manifests: 'id, runId',
       kv: 'key'
+    });
+    this.version(2).stores({
+      locationRuns: 'id, seq, scenarioId, status, versionTag'
     });
   }
 }
